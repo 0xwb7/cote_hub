@@ -1,0 +1,71 @@
+class Solution {
+    public static int solution(int n, int w, int num) {
+        int h = (int) Math.ceil((double) n / w);
+
+        int[][] box = new int[h][w];
+
+        int tmp = 1;
+        for (int i = 0; i < h; i++) {
+            if (i % 2 == 0) {
+                for (int j = 0; j < w; j++) {
+                    box[i][j] = tmp;
+                    tmp++;
+
+                    if (tmp > n) {
+                        break;
+                    }
+                }
+            } else {
+                for (int j = w - 1; j >= 0; j--) {
+                    box[i][j] = tmp;
+                    tmp++;
+
+                    if (tmp > n) {
+                        break;
+                    }
+                }
+            }
+        }
+//
+//        for (int i = 0; i < h; i++) {
+//            for (int j = 0; j < w; j++) {
+//                System.out.print(box[i][j] + " ");
+//            }
+//
+//            System.out.println();
+//        }
+//
+//        System.out.println();
+
+        int firstIdx = 0;
+        int lastIdx = 0;
+
+        for (int i = 0; i < h; i++) {
+            for (int j = 0; j < w; j++) {
+                if (box[i][j] == num) {
+//                    System.out.println(i + " " + j);
+                    firstIdx = i;
+                    lastIdx = j;
+                }
+            }
+        }
+
+        int cnt = 1;
+        firstIdx++;
+        while (firstIdx < h) {
+//            System.out.println(h + " " + firstIdx);
+
+            if (box[firstIdx][lastIdx] == 0) {
+                break;
+            }
+
+            firstIdx++;
+            cnt++;
+        }
+
+//        System.out.println(cnt);
+
+
+        return cnt;
+    }
+}
