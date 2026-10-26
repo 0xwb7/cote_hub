@@ -2,8 +2,6 @@ import java.util.*;
 
 class Solution {
     public int solution(String str1, String str2) {
-        int answer = 0;
-        
         ArrayList<String> list1 = toList(str1);
         ArrayList<String> list2 = toList(str2);
         
