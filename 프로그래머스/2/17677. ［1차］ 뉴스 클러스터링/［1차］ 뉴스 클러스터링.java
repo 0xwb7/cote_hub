@@ -33,8 +33,8 @@ class Solution {
         for (int i = 0; i < str.length() - 1; i++) {
             String tmp = str.substring(i, i + 2).toLowerCase();
             
-            if ((int) tmp.charAt(0) < 97 || (int) tmp.charAt(0) > 122 
-                || (int) tmp.charAt(1) < 97 || (int) tmp.charAt(1) > 122) {
+            if (tmp.charAt(0) < 'a' || tmp.charAt(0) > 'z' 
+                || tmp.charAt(1) < 'a' || tmp.charAt(1) > 'z') {
                 continue;
             } else {
                 list.add(tmp);
